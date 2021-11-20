@@ -13,11 +13,6 @@ class BottomBar extends StatefulWidget {
 class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 0;
 
-  final _pageOptions = [
-    Home(),
-    Appointment(),
-    LoadingScreen(),
-  ];
   static const List<Widget> _widgetPages = <Widget>[
     Icon(
       Icons.home_rounded,
@@ -32,6 +27,7 @@ class _BottomBarState extends State<BottomBar> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      _selectedIndex == 0 ? Navigator.pushReplacementNamed(context, '/home') : Navigator.pushNamed(context, '/settings');
     });
   }
 
@@ -51,7 +47,7 @@ class _BottomBarState extends State<BottomBar> {
         BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: 'Profile'),
       ],
       currentIndex: _selectedIndex,
-      onTap: _onItemTapped,
+      onTap: (_onItemTapped),
       // onTap: (index) {
       //   setState(() {
       //     selectedPage = index;

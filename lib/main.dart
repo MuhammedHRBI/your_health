@@ -3,6 +3,7 @@ import 'package:your_health/screens/contact_us.dart';
 import 'package:your_health/screens/faculty.dart';
 import 'package:your_health/screens/loading_screen.dart';
 import 'package:your_health/screens/login.dart';
+import 'package:your_health/screens/signup.dart';
 import 'screens/home.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:your_health/screens/settings.dart';
@@ -19,8 +20,8 @@ void main() async {
       '/appointment': (context) => const Appointment(),
       '/contactUs': (context) => const ContactUs(),
       '/settings': (context) => const Settingss(),
-      '/appointment': (context) => const Appointment(),
-      '/faculty': (context) => const Faculty()
+      '/faculty': (context) => const Faculty(),
+      '/signup': (context) => const SignUpScreen()
     },
   ));
 }
