@@ -5,8 +5,8 @@ class DatabaseManager{
    static final _databaseReference = FirebaseFirestore.instance;
   final CollectionReference profileList = _databaseReference.collection("Faculty");
 
-      Future updateUserList(String name, String department,String image, int phone, String uid) async {
-    return await profileList.doc(uid).update({'name': name, 'department': department,'image': image, 'phone': phone});
+      Future updateUserList(String name, String department,bool isBooked,String image, int phone, String uid) async {
+    return await profileList.doc(uid).update({'name': name, 'department': department,'isBooked': isBooked,'image': image, 'phone': phone});
   }
 
     Future getUserList() async {

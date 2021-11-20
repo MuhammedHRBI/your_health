@@ -77,8 +77,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               MaterialButton(
                 color: Colors.blue,
                 child: Text("Sign up"),
-                onPressed: () {
-                  auth.createUserWithEmailAndPassword(email: _email, password: _password);
+                onPressed: () async {
+                  await auth.createUserWithEmailAndPassword(email: _email, password: _password);
+                  Navigator.pushReplacementNamed(context, '/home');
                 }
                 )
             ],

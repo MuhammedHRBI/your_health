@@ -55,8 +55,9 @@ class _LoginScreenState extends State<LoginScreen> {
               MaterialButton(
                 color: Colors.blue,
                 child: Text("Sign in"),
-                onPressed: () {
-                  auth.signInWithEmailAndPassword(email: _email, password: _password);
+                onPressed: () async {
+                  await auth.signInWithEmailAndPassword(email: _email, password: _password);
+                  Navigator.pushReplacementNamed(context, '/home');
                 }
                 ),
               MaterialButton(
