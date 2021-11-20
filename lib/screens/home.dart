@@ -21,7 +21,7 @@ class Home extends StatelessWidget {
             children: [
               GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/home');
+                    Navigator.pushNamed(context, '/book');
                   },
                   child: Image.asset(
                     'images/Book.png',
@@ -51,7 +51,7 @@ class Home extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(),
                 child: GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '/home');
+                      Navigator.pushNamed(context, '/appointment');
                     },
                     child: Image.asset(
                       'images/MyAppointments.png',

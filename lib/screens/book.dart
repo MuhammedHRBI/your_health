@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:your_health/services/database_manager.dart';
 
-class Appointment extends StatefulWidget {
-  const Appointment({Key? key}) : super(key: key);
+class Book extends StatefulWidget {
+  const Book({Key? key}) : super(key: key);
 
   @override
-  _Appointment createState() => _Appointment();
+  _Book createState() => _Book();
 }
 
-class _Appointment extends State<Appointment> {
+class _Book extends State<Book> {
   List userProfilesList = [];
-  int counter = 0;
-  String userID = '';
+
+  get index => null;
   @override
   void initState() {
     super.initState();
@@ -39,46 +39,44 @@ class _Appointment extends State<Appointment> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("My Appointments"),
+          title: Text("Appointment Booking"),
           backgroundColor: Colors.lightBlue[400],
         ),
         body: Container(
             child: ListView.builder(
                 itemCount: userProfilesList.length,
                 itemBuilder: (context, index) {
-                  if (userProfilesList[index]['isBooked']) {
-                    return Card(
-                      child: GestureDetector(
-                          child: ListTile(
-                            title: Text(userProfilesList[index]['name']),
-                            subtitle: Text(userProfilesList[index]['department']),
-                            leading: CircleAvatar(
-                              child: Image(
-                                image: AssetImage('images/${userProfilesList[index]['image']}.png'),
-                              ),
+                  return Card(
+                    child: GestureDetector(
+                        child: ListTile(
+                          title: Text(userProfilesList[index]['name']),
+                          subtitle: Text(userProfilesList[index]['department']),
+                          leading: CircleAvatar(
+                            child: Image(
+                              image: AssetImage('images/${userProfilesList[index]['image']}.png'),
                             ),
                           ),
-                          onTap: () {
-                            showAlertDialog(context, userProfilesList[index]['uid']);
-                          }),
-                    );
-                  } else {
-                    return Container();
-                  }
+                        ),
+                        onTap: () {
+                          showAlertDialog(context, userProfilesList[index]['uid']);
+                        }),
+                  );
                 })));
   }
 
   showAlertDialog(BuildContext context, uid) {
     AlertDialog alert = AlertDialog(
-      title: Text("Canceling"),
-      content: Text("Are you sure you want to cancel this appointment?"),
+      title: Text("Booking"),
+      content: Text("Do you want to book this appointment?"),
       actions: <Widget>[
         TextButton(
             child: Text("Yes"),
             onPressed: () async {
-              await DatabaseManager.profileList.doc(uid).update({'isBooked': false});
-              Navigator.of(context).pop();
-              Navigator.pushReplacementNamed(context, '/home');
+              await DatabaseManager.profileList.doc(uid).update({'isBooked': true});
+
+              setState(() {
+                Navigator.of(context).pop();
+              });
             }),
         TextButton(
           child: Text("No"),

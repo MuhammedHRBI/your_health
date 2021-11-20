@@ -1,4 +1,5 @@
 import 'package:your_health/screens/appointments.dart';
+import 'package:your_health/screens/book.dart';
 import 'package:your_health/screens/contact_us.dart';
 import 'package:your_health/screens/faculty.dart';
 import 'package:your_health/screens/loading_screen.dart';
@@ -22,7 +23,8 @@ void main() async {
       '/contactUs': (context) => const ContactUs(),
       '/settings': (context) => const Settingss(),
       '/faculty': (context) => const Faculty(),
-      '/signup': (context) => const SignUpScreen()
+      '/signup': (context) => const SignUpScreen(),
+      '/book': (context) => const Book()
     },
   ));
 }

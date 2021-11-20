@@ -35,8 +35,8 @@ class _Faculty extends State<Faculty> {
       });
     }
   }
-    updateData(String name, String department,String image, int phone, String userID) async {
-    await DatabaseManager().updateUserList(name, department, image, phone, userID);
+    updateData(String name, String department,bool isBooked,String image, int phone, String userID) async {
+    await DatabaseManager().updateUserList(name, department,isBooked, image, phone, userID);
     fetchDatabaseList();
   }
 
