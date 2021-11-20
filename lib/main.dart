@@ -16,10 +16,10 @@ void main() async {
       '/': (context) => const LoadingScreen(),
       '/home': (context) => const Home(),
       '/login': (context) => const LoginScreen(),
-      '/appointment': (context) => Appointment(),
-      '/faculty': (context) => Faculty(),
-      '/settings': (context) => Settingss(),
-      '/contactUs': (context) => ContactUs(),
+      '/appointment': (context) => const Appointment(),
+      '/faculty': (context) => const Faculty(),
+      '/settings': (context) => const Settingss(),
+      '/contactUs': (context) => const ContactUs(),
     },
   ));
 }
