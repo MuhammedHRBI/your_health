@@ -9,7 +9,11 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.transparent, shadowColor: Colors.transparent, elevation: 0, ),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: SafeArea(
         child: Column(children: [
           Row(
@@ -20,7 +24,7 @@ class Home extends StatelessWidget {
                     Navigator.pushNamed(context, '/home');
                   },
                   child: Image.asset(
-                    'images/Services.png',
+                    'images/services.png',
                     height: 219,
                     width: 380,
                     fit: BoxFit.fill,
@@ -67,7 +71,7 @@ class Home extends StatelessWidget {
                     Navigator.pushNamed(context, '/home');
                   },
                   child: Image.asset(
-                    'images/Faculty.png',
+                    'images/faculty.png',
                     height: 125,
                     width: 150,
                     fit: BoxFit.cover,
@@ -76,7 +80,7 @@ class Home extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(),
                 child: GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '/home');
+                      Navigator.pushNamed(context, '/contactUs');
                     },
                     child: Image.asset(
                       'images/ContactUs.png',
