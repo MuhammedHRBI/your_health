@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:io';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Settingss extends StatelessWidget {
@@ -37,7 +40,9 @@ class Settingss extends StatelessWidget {
             height: 75,
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/settings');
+                final auth = FirebaseAuth.instance;
+                auth.signOut();
+                exit(0);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

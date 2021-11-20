@@ -88,8 +88,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-// final auth = FirebaseAuth.instance;
-// onPressed() {
-//   auth.signOut();
-// }
