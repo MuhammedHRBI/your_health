@@ -43,8 +43,11 @@ class _BottomBarState extends State<BottomBar> {
       selectedIconTheme: IconThemeData(color: Colors.blue[800], size: 60),
       selectedItemColor: Colors.blue[800],
       items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(Icons.home_rounded),label: 'Home',),
-        BottomNavigationBarItem(icon: Icon(Icons.calendar_today_rounded), label: 'Calendar'),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_rounded),
+          label: 'Home',
+        ),
+        // BottomNavigationBarItem(icon: Icon(Icons.calendar_today_rounded), label: 'Calendar'),
         BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: 'Profile'),
       ],
       currentIndex: _selectedIndex,
