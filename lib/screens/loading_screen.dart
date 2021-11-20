@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingScreen extends StatefulWidget {
-
+  const LoadingScreen({ Key? key }) : super(key: key);
   @override
   _LoadingScreenState createState() => _LoadingScreenState();
 }
@@ -10,7 +10,7 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen> {
 
   Future <void> switchToHome() async {
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
     Navigator.pushReplacementNamed(context, '/home');
   }
 
@@ -23,12 +23,22 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-      body: Center(
-        child: SpinKitChasingDots(
-          color: Colors.blue[100],
-          size: 69.0,
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(
+            Icons.ac_unit,
+          ),
+          const SizedBox(
+            height: 300,
+          ),
+          Center(
+            child: SpinKitFoldingCube(
+              color: Colors.blue[300],
+              size: 80.0,
+            ),
+          ),
+        ],
       ),
     );
   }
