@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:your_health/screens/appointments.dart';
 import 'package:your_health/screens/loading_screen.dart';
 import 'package:your_health/screens/login.dart';
 import 'screens/home.dart';
@@ -12,6 +13,7 @@ void main() async {
       '/': (context) => const LoadingScreen(),
       '/home': (context) => const Home(),
       '/login': (context) => const LoginScreen(),
+      '/appointment': (context) => Appointment(),
     },
   ));
 }
