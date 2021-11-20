@@ -1,7 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:your_health/screens/appointments.dart';
-import 'package:your_health/screens/contact_us.dart';
 import 'package:your_health/screens/loading_screen.dart';
 import 'package:your_health/screens/login.dart';
 import 'screens/home.dart';
@@ -12,6 +8,10 @@ void main() async {
   //WidgetsFlutterBinding.ensureInitialized();
   //await Firebase.initializeApp();
   runApp(MaterialApp(
+=======
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+    runApp(MaterialApp(
     routes: {
       '/': (context) => const LoadingScreen(),
       '/home': (context) => const Home(),
@@ -19,6 +19,9 @@ void main() async {
       '/appointment': (context) => const Appointment(),
       '/contactUs': (context) => const ContactUs(),
       '/settings': (context) => Settingss(),
+=======
+      '/appointment': (context) => Appointment(),
+      '/faculty': (context) => Faculty()
     },
   ));
 }
