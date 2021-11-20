@@ -20,16 +20,16 @@ class Home extends StatelessWidget {
                     Navigator.pushNamed(context, '/home');
                   },
                   child: Image.asset(
-                    'images/services.png',
-                    height: 175,
-                    width: 320,
+                    'images/Services.png',
+                    height: 219,
+                    width: 380,
                     fit: BoxFit.fill,
                   )),
             ],
           ),
           //),
           //),
-          SizedBox(height: 20),
+          SizedBox(height: 75),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -38,7 +38,7 @@ class Home extends StatelessWidget {
                     Navigator.pushNamed(context, '/home');
                   },
                   child: Image.asset(
-                    'images/dates.png',
+                    'images/AvaliableDates.png',
                     height: 125,
                     width: 150,
                     fit: BoxFit.fill,
@@ -50,7 +50,7 @@ class Home extends StatelessWidget {
                       Navigator.pushNamed(context, '/home');
                     },
                     child: Image.asset(
-                      'images/appointment.png',
+                      'images/MyAppointments.png',
                       height: 125,
                       width: 150,
                       fit: BoxFit.fill,
@@ -67,9 +67,9 @@ class Home extends StatelessWidget {
                     Navigator.pushNamed(context, '/home');
                   },
                   child: Image.asset(
-                    'images/faculty.png',
-                    width: 190,
-                    height: 165,
+                    'images/Faculty.png',
+                    height: 125,
+                    width: 150,
                     fit: BoxFit.cover,
                   )),
               Padding(
@@ -79,7 +79,7 @@ class Home extends StatelessWidget {
                       Navigator.pushNamed(context, '/home');
                     },
                     child: Image.asset(
-                      'images/contact.png',
+                      'images/ContactUs.png',
                       height: 125,
                       width: 150,
                       fit: BoxFit.fill,
