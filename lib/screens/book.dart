@@ -9,7 +9,6 @@ class Book extends StatefulWidget {
 }
 
 class _Book extends State<Book> {
-
   List userProfilesList = [];
 
   get index => null;
@@ -18,8 +17,6 @@ class _Book extends State<Book> {
     super.initState();
     fetchDatabaseList();
   }
-
-
 
   fetchDatabaseList() async {
     dynamic resultant = await DatabaseManager().getUserList();
@@ -32,8 +29,9 @@ class _Book extends State<Book> {
       });
     }
   }
-    updateData(String name, String department,bool isBooked,String image, int phone, String userID) async {
-    await DatabaseManager().updateUserList(name, department,isBooked , image, phone, userID);
+
+  updateData(String name, String department, bool isBooked, String image, int phone, String userID) async {
+    await DatabaseManager().updateUserList(name, department, isBooked, image, phone, userID);
     fetchDatabaseList();
   }
 
@@ -50,46 +48,50 @@ class _Book extends State<Book> {
                 itemBuilder: (context, index) {
                   return Card(
                     child: GestureDetector(
-                      child: ListTile(
-                        title: Text(userProfilesList[index]['name']),
-                        subtitle: Text(userProfilesList[index]['department']),
-                        leading: CircleAvatar(
-                          child: Image(
-                            image: AssetImage('images/${userProfilesList[index]['image']}.png'),
+                        child: ListTile(
+                          title: Text(userProfilesList[index]['name']),
+                          subtitle: Text(userProfilesList[index]['department']),
+                          leading: CircleAvatar(
+                            child: Image(
+                              image: AssetImage('images/${userProfilesList[index]['image']}.png'),
+                            ),
                           ),
                         ),
-                        trailing: Text('${userProfilesList[index]['phone']}'),
-                      ),
-                      onTap: () {showAlertDialog(context);}
-                    ),
+                        onTap: () {
+                          showAlertDialog(context, userProfilesList[index]['uid']);
+                        }),
                   );
                 })));
   }
-  showAlertDialog(BuildContext context) {  
-  
-  AlertDialog alert = AlertDialog(  
-    title: Text("Booking"),  
-    content: Text("Do you want to book this appointment?"),  
-    actions: <Widget>[  
-       TextButton(
-        child: Text("Yes"),
-        onPressed: () async { 
-  }
-      ),
-      TextButton(
-        child: Text("No"),
-        onPressed: () {  
-      Navigator.of(context).pop();
-    }, 
-      )  
-    ],  
-  );  
-   
-  showDialog(  
-    context: context,  
-    builder: (BuildContext context) {  
-      return alert;  
-    },  
-  );
+
+  showAlertDialog(BuildContext context, uid) {
+    AlertDialog alert = AlertDialog(
+      title: Text("Booking"),
+      content: Text("Do you want to book this appointment?"),
+      actions: <Widget>[
+        TextButton(
+            child: Text("Yes"),
+            onPressed: () async {
+              await DatabaseManager.profileList.doc(uid).update({'isBooked': true});
+
+              setState(() {
+                Navigator.of(context).pop();
+              });
+            }),
+        TextButton(
+          child: Text("No"),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        )
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 }

@@ -27,7 +27,9 @@ class _BottomBarState extends State<BottomBar> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      _selectedIndex == 0 ? Navigator.pushReplacementNamed(context, '/home') : Navigator.pushNamed(context, '/settings');
+      _selectedIndex == 0
+          ? Navigator.pushReplacementNamed(context, '/home')
+          : Navigator.pushNamed(context, '/settings');
     });
   }
 
@@ -36,7 +38,7 @@ class _BottomBarState extends State<BottomBar> {
     return BottomNavigationBar(
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      selectedIconTheme: IconThemeData(color: Colors.blue[800], size: 60),
+      selectedIconTheme: IconThemeData(color: Colors.blue[800], size: 30),
       selectedItemColor: Colors.blue[800],
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(

@@ -9,17 +9,14 @@ class Appointment extends StatefulWidget {
 }
 
 class _Appointment extends State<Appointment> {
-
   List userProfilesList = [];
   int counter = 0;
-  String userID ='';
+  String userID = '';
   @override
   void initState() {
     super.initState();
     fetchDatabaseList();
   }
-
-
 
   fetchDatabaseList() async {
     dynamic resultant = await DatabaseManager().getUserList();
@@ -32,8 +29,9 @@ class _Appointment extends State<Appointment> {
       });
     }
   }
-    updateData(String name, String department,bool isBooked,String image, int phone, String userID) async {
-    await DatabaseManager().updateUserList(name, department,isBooked , image, phone, userID);
+
+  updateData(String name, String department, bool isBooked, String image, int phone, String userID) async {
+    await DatabaseManager().updateUserList(name, department, isBooked, image, phone, userID);
     fetchDatabaseList();
   }
 
@@ -48,22 +46,54 @@ class _Appointment extends State<Appointment> {
             child: ListView.builder(
                 itemCount: userProfilesList.length,
                 itemBuilder: (context, index) {
-                  if (userProfilesList[index]['isBooked']) {return Card(
-                    child: ListTile(
-                      title: Text(userProfilesList[index]['name']),
-                      subtitle: Text(userProfilesList[index]['department']),
-                      leading: CircleAvatar(
-                        child: Image(
-                          image: AssetImage('images/${userProfilesList[index]['image']}.png'),
-                        ),
-                      ),
-                      trailing: Text('${userProfilesList[index]['phone']}'),
-                    ),
-                  );
-                  }
-                  else {
+                  if (userProfilesList[index]['isBooked']) {
+                    return Card(
+                      child: GestureDetector(
+                          child: ListTile(
+                            title: Text(userProfilesList[index]['name']),
+                            subtitle: Text(userProfilesList[index]['department']),
+                            leading: CircleAvatar(
+                              child: Image(
+                                image: AssetImage('images/${userProfilesList[index]['image']}.png'),
+                              ),
+                            ),
+                          ),
+                          onTap: () {
+                            showAlertDialog(context, userProfilesList[index]['uid']);
+                          }),
+                    );
+                  } else {
                     return Container();
                   }
                 })));
+  }
+
+  showAlertDialog(BuildContext context, uid) {
+    AlertDialog alert = AlertDialog(
+      title: Text("Canceling"),
+      content: Text("Are you sure you want to cancel this appointment?"),
+      actions: <Widget>[
+        TextButton(
+            child: Text("Yes"),
+            onPressed: () async {
+              await DatabaseManager.profileList.doc(uid).update({'isBooked': false});
+              Navigator.of(context).pop();
+              Navigator.pushReplacementNamed(context, '/home');
+            }),
+        TextButton(
+          child: Text("No"),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        )
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 }
