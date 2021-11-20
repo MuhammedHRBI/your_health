@@ -24,7 +24,7 @@ class Home extends StatelessWidget {
                     Navigator.pushNamed(context, '/home');
                   },
                   child: Image.asset(
-                    'images/services.png',
+                    'images/Services.png',
                     height: 219,
                     width: 380,
                     fit: BoxFit.fill,
@@ -71,7 +71,7 @@ class Home extends StatelessWidget {
                     Navigator.pushNamed(context, '/faculty');
                   },
                   child: Image.asset(
-                    'images/faculty.png',
+                    'images/Faculty.png',
                     height: 125,
                     width: 150,
                     fit: BoxFit.cover,
