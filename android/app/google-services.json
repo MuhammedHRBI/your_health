@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "461719706742",
+    "project_id": "your-health-157ab",
+    "storage_bucket": "your-health-157ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461719706742:android:b7779d9ca04a1087ddd357",
+        "android_client_info": {
+          "package_name": "com.MMTR.your_health"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461719706742-ks42e42k1o7m0pj5hop72ubfjh3sgh1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3dwhZezDw2mTKDsaPMShSQf7LtxUNKuk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461719706742-ks42e42k1o7m0pj5hop72ubfjh3sgh1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
