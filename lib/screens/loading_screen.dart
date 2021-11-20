@@ -26,8 +26,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(
-            Icons.ac_unit,
+          Image.asset(
+            'images/logo.png',
+            width: 221,
+            height: 144,
+            fit: BoxFit.cover
           ),
           const SizedBox(
             height: 300,

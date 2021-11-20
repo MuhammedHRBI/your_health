@@ -9,46 +9,48 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.transparent, shadowColor: Colors.transparent, elevation: 0, ),
       body: SafeArea(
         child: Column(children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 8.0),
-            child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/home');
-                },
-                child: Image.asset(
-                  'images/unknown.png',
-                  height: 175,
-                  width: 320,
-                  fit: BoxFit.fill,
-                )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/home');
+                  },
+                  child: Image.asset(
+                    'images/services.png',
+                    height: 175,
+                    width: 320,
+                    fit: BoxFit.fill,
+                  )),
+            ],
           ),
           //),
           //),
+          SizedBox(height: 20),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/home');
+                  },
+                  child: Image.asset(
+                    'images/dates.png',
+                    height: 125,
+                    width: 150,
+                    fit: BoxFit.fill,
+                  )),
               Padding(
-                padding: const EdgeInsets.fromLTRB(36, 8, 8, 8),
+                padding: const EdgeInsets.symmetric(),
                 child: GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, '/home');
                     },
                     child: Image.asset(
-                      'images/unknown.png',
-                      height: 125,
-                      width: 150,
-                      fit: BoxFit.fill,
-                    )),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                child: GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/home');
-                    },
-                    child: Image.asset(
-                      'images/unknown.png',
+                      'images/appointment.png',
                       height: 125,
                       width: 150,
                       fit: BoxFit.fill,
@@ -56,29 +58,28 @@ class Home extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(height: 20),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/home');
+                  },
+                  child: Image.asset(
+                    'images/faculty.png',
+                    width: 190,
+                    height: 165,
+                    fit: BoxFit.cover,
+                  )),
               Padding(
-                padding: const EdgeInsets.fromLTRB(36, 8, 8, 8),
+                padding: const EdgeInsets.symmetric(),
                 child: GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, '/home');
                     },
                     child: Image.asset(
-                      'images/unknown.png',
-                      height: 125,
-                      width: 150,
-                      fit: BoxFit.fill,
-                    )),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                child: GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/home');
-                    },
-                    child: Image.asset(
-                      'images/unknown.png',
+                      'images/contact.png',
                       height: 125,
                       width: 150,
                       fit: BoxFit.fill,
