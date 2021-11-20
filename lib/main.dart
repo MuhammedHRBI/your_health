@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:your_health/screens/auth_wrapper.dart';
 import 'package:your_health/screens/loading_screen.dart';
-import 'package:your_health/screens/sign_in.dart';
+import 'package:your_health/screens/login.dart';
 import 'screens/home.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(MaterialApp(
+void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+    runApp(MaterialApp(
     routes: {
       '/': (context) => const LoadingScreen(),
       '/home': (context) => const Home(),
-      '/auth_wrapper' : (context) => const AuthWrapper(),
-      '/sign_in' : (context) => const SignIn(),
+      '/login': (context) => const LoginScreen(),
     },
   ));
+}

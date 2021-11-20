@@ -11,7 +11,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   Future <void> switchToHome() async {
     await Future.delayed(const Duration(seconds: 3));
-    Navigator.pushReplacementNamed(context, '/sign_in');
+    Navigator.pushReplacementNamed(context, '/home');
   }
 
     @override
